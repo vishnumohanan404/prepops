@@ -47,25 +47,25 @@ const navMain = [
       },
     ],
   },
-  {
-    title: "Progress",
-    url: "/progress",
-    icon: LoaderPinwheelIcon,
-    items: [
-      {
-        title: "Tracking",
-        url: "/tracking",
-      },
-      {
-        title: "Leaderboard",
-        url: "/leaderboard",
-      },
-      {
-        title: "Goals",
-        url: "/goal",
-      },
-    ],
-  },
+  // {
+  //   title: "Progress",
+  //   url: "/progress",
+  //   icon: LoaderPinwheelIcon,
+  //   items: [
+  //     {
+  //       title: "Tracking",
+  //       url: "/tracking",
+  //     },
+  //     {
+  //       title: "Leaderboard",
+  //       url: "/leaderboard",
+  //     },
+  //     {
+  //       title: "Goals",
+  //       url: "/goal",
+  //     },
+  //   ],
+  // },
   // {
   //   title: "Documentation",
   //   url: "/docs",
@@ -89,16 +89,16 @@ const navMain = [
   //     },
   //   ],
   // },
-  {
-    title: "Changelogs",
-    url: "/changelogs",
-    icon: GitBranchIcon,
-  },
-  {
-    title: "Settings",
-    url: "/settings",
-    icon: Settings2,
-  },
+  // {
+  //   title: "Changelogs",
+  //   url: "/changelogs",
+  //   icon: GitBranchIcon,
+  // },
+  // {
+  //   title: "Settings",
+  //   url: "/settings",
+  //   icon: Settings2,
+  // },
 ];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {

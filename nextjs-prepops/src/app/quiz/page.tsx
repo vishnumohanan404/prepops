@@ -1,5 +1,4 @@
 import React from "react";
-import { type SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import AppLayout from "@/components/layout/AppLayout";
 import { Separator } from "@/components/ui/separator";
@@ -13,6 +12,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 export interface Topic {
+  _id: string;
   title: string;
   description: string;
   level: string;
@@ -22,7 +22,7 @@ export interface Topic {
 }
 const TOPIC_QUERY = `*[_type == "topics"]`;
 const page = async () => {
-  const topics = [...new Set(await client.fetch<Topic[]>(TOPIC_QUERY))];
+  const topics = await client.fetch<Topic[]>(TOPIC_QUERY);
 
   return (
     <AppLayout>
@@ -34,11 +34,8 @@ const page = async () => {
         <div className="flex flex-1 flex-col gap-4 mt-8">
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             {topics.map((item, idx) => (
-              <Link href={`/quiz/${item.slug.current}`}>
-                <Card
-                  key={item.title + idx}
-                  className="aspect-video rounded-xl hover:cursor-pointer"
-                >
+              <Link href={`/quiz/${item.slug.current}`} key={item._id}>
+                <Card className="aspect-video rounded-xl hover:cursor-pointer">
                   <CardHeader>
                     <CardTitle>{item.title}</CardTitle>
                   </CardHeader>
