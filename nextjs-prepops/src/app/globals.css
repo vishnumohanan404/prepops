@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -25,7 +25,7 @@
     --ring: 201 82% 49%;
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
@@ -48,7 +48,7 @@
     --ring: 201 82% 49%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
@@ -67,3 +67,17 @@ body {
   );
 }
 
+@layer utilities {
+  .hover-interactive {
+    @apply hover:cursor-pointer hover:shadow-lg hover:shadow-black/20 
+           transition-all duration-200 
+           dark:bg-gray-900/50 dark:hover:bg-gray-900;
+
+  }
+
+  /* Apply gradient only on hover in light mode */
+  .hover-interactive:hover:not(.dark *) {
+    background: linear-gradient(to right, #f9f9f9, #e0e0e0);
+    transition: background 3s ease-in-out;
+  }
+}

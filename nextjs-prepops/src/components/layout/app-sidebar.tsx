@@ -2,9 +2,11 @@
 
 import * as React from "react";
 import {
+  BookCopyIcon,
   BookOpen,
   Frame,
   GitBranchIcon,
+  Home,
   LoaderPinwheelIcon,
   Map,
   PieChart,
@@ -27,10 +29,15 @@ import Logo from "../app/logo";
 
 // This is sample data.
 const navMain = [
+  // {
+  //   title: "Home",
+  //   url: "/dashboard",
+  //   icon: Home,
+  // },
   {
-    title: "Playground",
-    url: "/playground",
-    icon: SquareAsteriskIcon,
+    title: "Resources",
+    url: "/resource",
+    icon: BookCopyIcon,
     isActive: true,
     items: [
       {
@@ -41,12 +48,24 @@ const navMain = [
         title: "Notes",
         url: "/note",
       },
-      {
-        title: "Cheetsheets",
-        url: "cheetsheet",
-      },
     ],
   },
+  // {
+  //   title: "Playgrounds",
+  //   url: "/playground",
+  //   icon: SquareAsteriskIcon,
+  //   isActive: true,
+  //   items: [
+  //     {
+  //       title: "Labs",
+  //       url: "/lab",
+  //     },
+  //     {
+  //       title: "Challenges",
+  //       url: "/challenge",
+  //     },
+  //   ],
+  // },
   // {
   //   title: "Progress",
   //   url: "/progress",

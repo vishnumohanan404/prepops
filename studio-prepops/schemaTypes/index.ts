@@ -1,4 +1,5 @@
+import {noteType} from './note'
 import {quizType} from './quiz'
-import { topicsType } from './topics'
+import {topicsType} from './topics'
 
-export const schemaTypes = [quizType, topicsType]
+export const schemaTypes = [quizType, topicsType, noteType]

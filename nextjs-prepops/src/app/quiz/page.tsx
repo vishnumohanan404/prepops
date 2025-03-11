@@ -1,7 +1,6 @@
 import React from "react";
-import { client } from "@/sanity/client";
+import { sanityClient } from "@/sanity/client";
 import AppLayout from "@/components/layout/AppLayout";
-import { Separator } from "@/components/ui/separator";
 import {
   Card,
   CardContent,
@@ -11,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import PageLayout from "@/components/layout/page-layout";
 export interface Topic {
   _id: string;
   title: string;
@@ -22,20 +22,16 @@ export interface Topic {
 }
 const TOPIC_QUERY = `*[_type == "topics"]`;
 const page = async () => {
-  const topics = await client.fetch<Topic[]>(TOPIC_QUERY);
+  const topics = await sanityClient.fetch<Topic[]>(TOPIC_QUERY);
 
   return (
     <AppLayout>
-      <div className="mx-auto  max-w-5xl p-8">
-        <h1 className="text-4xl font-bold mb-2 ">Quiz</h1>
-        <p className="mb-7 text-muted-foreground">Pick a topic</p>
-        <Separator />
-        {/* <div className="mt-8"></div> */}
+      <PageLayout title="Quiz" subtitle="Pick a topic">
         <div className="flex flex-1 flex-col gap-4 mt-8">
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             {topics.map((item, idx) => (
               <Link href={`/quiz/${item.slug.current}`} key={item._id}>
-                <Card className="aspect-video rounded-xl hover:cursor-pointer">
+                <Card className="aspect-video rounded-xl hover-interactive">
                   <CardHeader>
                     <CardTitle>{item.title}</CardTitle>
                   </CardHeader>
@@ -52,27 +48,7 @@ const page = async () => {
             ))}
           </div>
         </div>
-
-        {/* <ul className="flex flex-col gap-y-4">
-          {quizes.map((post) => (
-            <li className="" key={post._id}>
-              <div>
-                <h3 className="text-xl font-semibold">{post.topic}</h3>
-                <h3 className="text-xl font-semibold">{post.subtopic}</h3>
-                <h2 className="text-xl font-semibold">{post.question}</h2>
-                <div>
-                  <ul>
-                    {post.options.map((option: string, idx: number) => (
-                      <li key={idx + option}>{option}</li>
-                    ))}
-                  </ul>
-                </div>
-                <p>{new Date(post.publishedAt).toLocaleDateString()}</p>
-              </div>
-            </li>
-          ))}
-        </ul> */}
-      </div>
+      </PageLayout>
     </AppLayout>
   );
 };

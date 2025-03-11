@@ -56,7 +56,7 @@ export default function Features() {
             viewport={{ once: true }}
             className="relative group"
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent rounded-3xl group-hover:from-primary/20 transition-all duration-300" />
+            <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent rounded-2xl group-hover:from-primary/20 transition-all duration-300" />
             <div className="relative p-8">
               <feature.icon className="w-12 h-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>

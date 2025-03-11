@@ -1,10 +1,11 @@
 import React from "react";
-import { client } from "@/sanity/client";
+import { sanityClient } from "@/sanity/client";
 import AppLayout from "@/components/layout/AppLayout";
 import { Topic } from "../page";
 
 import QuizCard from "@/components/quiz/quiz-card";
 import { Separator } from "@/components/ui/separator";
+import PageLayout from "@/components/layout/page-layout";
 
 const QUIZ_QUERY = `*[_type == "quiz" && topic->slug.current == $slug]{
     topic->{
@@ -37,11 +38,10 @@ export interface Quiz {
   _id: string;
 }
 const QuizPage = async ({ params }: QuizPageProps) => {
-  const { slug } = params;
+  const { slug } = await params;
 
   // Fetch quiz data for the given slug
-  const quiz = await client.fetch<Quiz[]>(QUIZ_QUERY, { slug });
-  console.log("quiz :>> ", quiz);
+  const quiz = await sanityClient.fetch<Quiz[]>(QUIZ_QUERY, { slug });
   if (!quiz) {
     return (
       <AppLayout>
@@ -55,15 +55,11 @@ const QuizPage = async ({ params }: QuizPageProps) => {
 
   return (
     <AppLayout>
-      <div className="mx-auto  max-w-5xl p-8">
-        <h1 className="text-4xl font-bold mb-2 capitalize">{slug}</h1>
-        <p className="mb-7 text-muted-foreground"></p>
-        <Separator />
-        {/* <div className="mt-8"></div> */}
+      <PageLayout title={slug}>
         <div className="flex justify-center gap-4 mt-8">
           <QuizCard questions={quiz} topic={slug} />
         </div>
-      </div>
+      </PageLayout>
     </AppLayout>
   );
 };

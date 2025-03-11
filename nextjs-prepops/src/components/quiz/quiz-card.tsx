@@ -2,7 +2,7 @@
 import { Quiz } from "@/app/quiz/[slug]/page";
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Brain, CheckCircle2, Timer, XCircle } from "lucide-react";
+import { CheckCircle2, Timer, XCircle } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { cn } from "@/lib/utils";

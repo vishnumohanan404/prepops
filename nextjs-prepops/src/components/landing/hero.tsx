@@ -67,9 +67,10 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="mt-20 relative w-full max-w-4xl mx-auto"
         >
-          <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg overflow-hidden">
-            <div className="absolute inset-0 bg-white/10" />
-          </div>
+          {/* <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg overflow-hidden"> */}
+            {/* <div className="absolute inset-0 bg-white/10" /> */}
+            <Image src={'/hero.png'} alt="hero" width={896} height={504} objectFit={""}/>
+          {/* </div> */}
           <div className="my-8 flex flex-col items-center">
             {/* <div className="flex -space-x-2">
               {[...Array(5)].map((_, i) => (

@@ -4,7 +4,7 @@ import React from "react";
 
 const Logo = () => {
   return (
-    <Link href={"/dashboard"}>
+    <Link href={"/"}>
       <Image
         src={"/logo-base-256x256.png"}
         width={32}
